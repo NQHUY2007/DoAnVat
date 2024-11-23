@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KHÁNH CHIÊU FOOD</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #ff424e;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      background-color: #444;
+      padding: 10px 0;
+      color: white;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 15px;
+    }
+
+    .nav a:hover {
+      background-color: #555;
+    }
+
+    .content {
+      padding: 20px;
+      text-align: center;
+      background-color: #fdf5e6;
+    }
+
+    .banner {
+      width: 100%;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .product-item {
+      background-color: #f1f1f1;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      width: 299px;
+      height: 290px;
+      margin-left: 6px;
+      display: inline-block;
+    }
+
+    .product-item h2 {
+      color: #ff424e;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 10px;
+      display: block;
+      box-sizing: border-box;
+    }
+
+    .product h2 {
+      font-size: 1.2em;
+    }
+
+    .product p {
+      color: #888;
+    }
+
+    .product .price {
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    .footer {
+      background-color: pink;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 20px;
+    }
+
+    p {
+      display: block;
+      margin-block-start: 10px;
+      margin-block-end: 10px;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      unicode-bidi: isolate;
+    }
+
+    h2 {
+      display: block;
+      font-size: 22px;
+      margin-block-start: -9px;
+      margin-block-end: 6px;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      unicode-bidi: isolate;
+    }
+
+    h3 {
+      background-color: #f1f1f1;
+      color: #ff424e;
+      width: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-left: 528px;
+      border-radius: 10px;
+    }
+
+
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+
+    }
+
+
+    .mySlides {
+      display: none;
+    }
+
+    .mySlides img {
+      height: 500px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .text {
+      color: #fff;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    .dot:hover {
+      background-color: #717171;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>KHÁNH CHIÊU FOOD</h1>
+  </div>
+
+  <div class="nav">
+    <a href="huy2007.html">HOME</a>
+    <a href="huy3.html">FOOD</a>
+    <a href="honme.html">DRINK</a>
+  </div>
+
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="Screenshot_1.png" style="width:100%">
+      <div class="text"></div>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="slg.jfif" style="width:100%">
+      <div class="text"></div>
+    </div>
+  </div>
+  <br>
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+
+  </div>
+
+  <div class="content">
+
+    <div class="product-item">
+      <h2>CƠM CHIÊN</h2>
+      <img src="com.jfif" width="200px" height="180px">
+      <p style="font-family: sans-serif;color:#ff424e;">SIZE LỚN:20k</p>
+      <p style="font-family: sans-serif;color: #ff424e">SIZE NHỎ:15k</p>
+    </div>
+    <div class="product-item">
+      <h2>SANDWICH</h2>
+      <img src="banhmy.jfif" width="200px" height="180px">
+      <p style="font-family: sans-serif;color:#ff424e;">SIZE LỚN:20k</p>
+      <p style="font-family: sans-serif;color: #ff424e">SIZE NHỎ:15k</p>
+    </div>
+    <div class="product-item">
+      <h2>MỲ TRỘN</h2>
+      <img src="mysao.jfif" width="200px" height="180px">
+      <p style="font-family: sans-serif;color:#ff424e;">SIZE LỚN:20k</p>
+      <p style="font-family: sans-serif;color: #ff424e">SIZE NHỎ:15k</p>
+    </div>
+    <div class="product-item">
+      <h2>kIMBAP</h2>
+      <img src="kimpap.jfif" width="200px" height="180px">
+      <p style="font-family: sans-serif;color:#ff424e;">SIZE LỚN:20k</p>
+      <p style="font-family: sans-serif;color: #ff424e">SIZE NHỎ:15k</p>
+    </div>
+    <div class="product-item">
+      <h2>SỮA BÍ ĐỎ</h2>
+      <img src="suabi.jfif" width="200px" height="180px">
+      <p style="font-family: sans-serif;color:#ff424e;">SIZE LỚN:15k</p>
+      <p style="font-family: sans-serif;color: #ff424e">SIZE NHỎ:10k</p>
+    </div>
+    <div class="product-item">
+      <h2>TRÀ SỮA</h2>
+      <img src="trasua.jfif" width="200px" height="180px">
+      <p style="font-family: sans-serif;color:#ff424e;">SIZE LỚN:15k</p>
+      <p style="font-family: sans-serif;color: #ff424e">SIZE NHỎ:10k</p>
+    </div>
+    <P><a style="text-decoration: none;" href="huy3.html"> Xem Thêm...</P></a>
+  </div>
+
+  <div class="footer">
+    <p style="color: blue;">GỌI ĐỂ ĐẶT HÀNG <br><a style="text-decoration:none;" href="tel:0329031440">0329031440</a>
+    </p>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 2000);
+    }
+  </script>
+</body>
+
+</html>

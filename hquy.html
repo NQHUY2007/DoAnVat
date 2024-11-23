@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .product {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px;
+      width: 200px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+    }
+
+    .product h2 {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+
+    .product p {
+      font-size: 1.2em;
+      color: #888;
+    }
+
+    .add-to-cart {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ff424e;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .add-to-cart:hover {
+      background-color: #e04343;
+    }
+
+    .cart {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+
+    .cart h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    .cart-items {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+    }
+
+    .cart-items .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .cart-item img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .cart-item p {
+      margin: 0;
+      font-size: 1.2em;
+    }
+
+    .cart-item input {
+      width: 50px;
+      padding: 5px;
+      margin-right: 10px;
+    }
+
+    .cart-item .remove {
+      background-color: #ff424e;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .cart-item .remove:hover {
+      background-color: #e04343;
+    }
+
+    #cart-total {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Shopping Cart</h1>
+    <div class="products">
+      <div class="product">
+        <img src="" alt="Iphone 6">
+        <h2>Iphone 6</h2>
+        <p>Price: 320,000 đ</p>
+        <button class="add-to-cart" data-price="320000">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="iphone7.jpg" alt="Iphone 7">
+        <h2>Iphone 7</h2>
+        <p>Price: 125,000 đ</p>
+        <button class="add-to-cart" data-price="125000">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="iphone8.jpg" alt="Iphone 8">
+        <h2>Iphone 8</h2>
+        <p>Price: 429,000 đ</p>
+        <button class="add-to-cart" data-price="429000">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="samsung.jpg" alt="Samsung">
+        <h2>Samsung</h2>
+        <p>Price: 387,000 đ</p>
+        <button class="add-to-cart" data-price="387000">Add to Cart</button>
+      </div>
+    </div>
+    <div class="cart">
+      <h2>Cart</h2>
+      <div class="cart-items">
+        <!-- Cart items will be added here dynamically -->
+      </div>
+      <p>Total: <span id="cart-total">0</span> đ</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+      const cartItemsContainer = document.querySelector('.cart-items');
+      const cartTotalElement = document.getElementById('cart-total');
+      let cartTotal = 0;
+
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const productElement = button.parentElement;
+          const productName = productElement.querySelector('h2').innerText;
+          const productPrice = parseInt(button.getAttribute('data-price'), 10);
+          const productImage = productElement.querySelector('img').src;
+
+          addToCart(productName, productPrice, productImage);
+        });
+      });
+
+      function addToCart(name, price, image) {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+
+        cartItem.innerHTML = `
+                    <img src="${image}" alt="${name}">
+                    <p>${name}</p>
+                    <p>${price} đ</p>
+                    <input type="number" value="1" min="1">
+                    <button class="remove">Remove</button>
+                `;
+
+        cartItem.querySelector('input').addEventListener('change', (e) => {
+          updateCartTotal();
+        });
+
+        cartItem.querySelector('.remove').addEventListener('click', () => {
+          cartItem.remove();
+          updateCartTotal();
+        });
+
+        cartItemsContainer.appendChild(cartItem);
+        updateCartTotal();
+      }
+
+      function updateCartTotal() {
+        let total = 0;
+        const cartItems = cartItemsContainer.querySelectorAll('.cart-item');
+
+        cartItems.forEach(item => {
+          const quantity = item.querySelector('input').value;
+          const price = item.querySelector('p:nth-child(3)').innerText.replace(' đ', '');
+          total += quantity * price;
+        });
+
+        cartTotalElement.innerText = total.toLocaleString();
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cost Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    .calculator {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .calculator input,
+    .calculator select,
+    .calculator button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .calculator button {
+      background-color: #ff424e;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .calculator button:hover {
+      background-color: #e04343;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator">
+    <h2>TÍNH COST</h2>
+    <label for="price">ĐƠN GIÁ:</label>
+    <input type="number" id="price" placeholder="Enter unit price">
+
+    <label for="quantity">SỐ LƯỢNG:</label>
+    <input type="number" id="quantity" placeholder="Enter quantity">
+
+    <label for="tax">ỔN ĐỊNH (%):</label>
+    <input type="number" id="tax" placeholder="Enter tax rate">
+
+    <button onclick="calculateCost()">Calculate</button>
+
+    <h3>Total Cost: <span id="total">0</span> VND</h3>
+  </div>
+
+  <script>
+    function calculateCost() {
+      var price = parseFloat(document.getElementById('price').value);
+      var quantity = parseFloat(document.getElementById('quantity').value);
+      var tax = parseFloat(document.getElementById('tax').value);
+
+      if (isNaN(price) || isNaN(quantity) || isNaN(tax)) {
+        alert("Please enter valid numbers!");
+        return;
+      }
+
+      var totalCost = (price * quantity) * (1 + (tax / 100));
+      document.getElementById('total').innerText = totalCost.toFixed(2);
+    }
+  </script>
+</body>
+
+</html>
